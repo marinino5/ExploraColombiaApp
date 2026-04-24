@@ -21,25 +21,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
         setContent {
-                val myNavController = rememberNavController()
-                NavHost(
-                    navController = myNavController,
-                    startDestination = "login",
-                    modifier = Modifier.fillMaxSize()
-                ){
-                    composable(route = "login"){
-                        LoginScreen(onLoginSuccess = {}, onNavigateToRegister = {})
-                    }
-
-                    composable(route = "register") {
-                        RegisterScreen(onRegisterSuccess = {}, onNavigateToLogin = {})
-
-                    }
-                }
+            ExploraColombiaAPPTheme() {
+                NavigationApp()
             }
         }
     }
+}
 
 
