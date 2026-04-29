@@ -29,37 +29,24 @@ import com.google.firebase.auth.auth
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    onClickLogout: () -> Unit = {}
+    onClickAddPlace: () -> Unit
 ) {
-
-    val auth = Firebase.auth
-    val user = auth.currentUser
-
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = "Explora Colombia")
-                }
-            )
+            TopAppBar(title = { Text(text = "Explora Colombia") })
         },
-
         floatingActionButton = {
-            FloatingActionButton(
-                onClick = {}
-            ) {
+            FloatingActionButton(onClick = {
+                onClickAddPlace()
+            }) {
                 Icon(
                     imageVector = Icons.Default.Add,
                     contentDescription = "Add"
                 )
             }
         }
-
     ) { paddingValues ->
-
-        Column(
-            modifier = Modifier.padding(paddingValues)
-        ) {
+        Column(modifier = Modifier.padding(paddingValues)) {
 
         }
     }
