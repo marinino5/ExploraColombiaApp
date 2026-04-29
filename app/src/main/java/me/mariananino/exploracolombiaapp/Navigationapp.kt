@@ -70,9 +70,16 @@ fun NavigationApp() {
         }
 
         composable(route = "add_place") {
-            AddPlaceScreen()
+            AddPlaceScreen(
+                onBackClick = {
+                    myNavController.navigate(route = "home") {
+                        popUpTo("home") {
+                            inclusive = false
+                        }
+                    }
+                }
+            )
         }
     }
 }
-
 
